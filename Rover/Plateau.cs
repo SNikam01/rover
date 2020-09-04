@@ -16,11 +16,5 @@ namespace Rover
             this.X = x;
             this.Y = y;
         }
-
-        public static bool ValidatePlateau(int[] roverCoordinate, int[] plateauCoordinate)
-        {
-            //if ()
-            return true;
-        }
     }
 }

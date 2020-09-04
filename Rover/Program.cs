@@ -6,19 +6,20 @@ namespace Rover
 {
     class Program
     {
-
+        #region Main Methid Functionality
         static Directions.Direction direction;
-        public static void Main(string[] args)
+        public static void Main()
         {
             try
             {
                 Console.WriteLine("Enter Number of Rover");
                 int RoverCount = Convert.ToInt16 (Console.ReadLine());
-               
+
+                Console.WriteLine("Enter X Y maximum Coordinate of Plateu ");
+                var plateau = Console.ReadLine().Trim().Split(' ').Select(int.Parse).ToList();
+
                 for (int i = 0; i < RoverCount; i++)
                 {
-                    Console.WriteLine("Enter X Y coordinate of Plateu for Rover " + (i + 1));
-                    var plateau = Console.ReadLine().Trim().Split(' ').Select(int.Parse).ToList();
                     Console.WriteLine("Enter Starting Point Direction Ex- 1 2 N for the Rover " + (i+1));
                     var startingPoint = Console.ReadLine().Trim().Split(' ');
                     //rover coordinates not greater than plateau 
@@ -30,7 +31,7 @@ namespace Rover
                     }
                     if (startingPoint.Count() == 3)
                     {
-                        SetDirection(Convert.ToString(startingPoint[2]));
+                        SetDirection(Convert.ToString(startingPoint[2].ToUpper()));
                     }
                     else
                     {
@@ -48,19 +49,18 @@ namespace Rover
                     Console.ReadLine();
                 }
             }
-            catch (global::System.Exception ex)
+            catch (Exception ex)
             {
 
                 throw ex;
             }
         }
-
+        #endregion
+        #region Other Functionality
         public static void SetDirection(string strDirection)
         {
             try
             {
-
-
                 if (strDirection.Trim() != null)
                 {
                     switch (strDirection)
@@ -90,6 +90,6 @@ namespace Rover
                 throw ex;
             }
         }
-
+        #endregion
     }
 }

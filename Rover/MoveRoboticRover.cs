@@ -14,19 +14,19 @@ namespace Rover
         /// <param name="roboticRover"></param>
         public static void Move(this RoboticRover roboticRover)
         {
-            if (roboticRover.RoboticRoverDirection == Directions.Direction.N && roboticRover.Plateau.Y > roboticRover.YPosition)
+            if (roboticRover.RoboticRoverDirection == Directions.Direction.N && roboticRover.Plateau.Y >= roboticRover.YPosition)
             {
                 roboticRover.YPosition++;
             }
-            else if (roboticRover.RoboticRoverDirection == Directions.Direction.E && roboticRover.Plateau.X > roboticRover.XPosition)
+            else if (roboticRover.RoboticRoverDirection == Directions.Direction.E && roboticRover.Plateau.X >= roboticRover.XPosition)
             {
                 roboticRover.XPosition++;
             }
-            else if (roboticRover.RoboticRoverDirection == Directions.Direction.S && roboticRover.YPosition > 0)
+            else if (roboticRover.RoboticRoverDirection == Directions.Direction.S && roboticRover.YPosition >= 0)
             {
                 roboticRover.YPosition--;
             }
-            else if (roboticRover.RoboticRoverDirection == Directions.Direction.W && roboticRover.XPosition > 0)
+            else if (roboticRover.RoboticRoverDirection == Directions.Direction.W && roboticRover.XPosition >= 0)
             {
                 roboticRover.XPosition--;
             }
